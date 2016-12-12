@@ -49,7 +49,7 @@ class WechatRequest(object):
         )
         r.raise_for_status()
         try:
-            response_json = r.json()
+            response_json = json.loads(r.content, strict=False)
         except ValueError:  # 非 JSON 数据
             return r
 
